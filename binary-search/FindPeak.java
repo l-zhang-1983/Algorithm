@@ -1,19 +1,17 @@
-package $20170511;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class FindPeak {
-	
+
 	private List<Integer> list = new ArrayList<Integer>();
-	
+
 	public int find(int target) {
 		int from = 0;
 		int to = list.size() - 1;
 		int mid = from + (to - from) / 2;
-		
+
 		while (from < to) {
 			if (list.get(mid) > list.get(from)) {
 				// 中点元素大于起点元素
@@ -30,10 +28,10 @@ public class FindPeak {
 			}
 			mid = from + (to - from) / 2;
 		}
-		
+
 		return -1;
 	}
-	
+
 	public void initialize() {
 		Random r = new Random(System.currentTimeMillis());
 		int next;
@@ -45,16 +43,16 @@ public class FindPeak {
 			list.add(next);
 		}
 		System.out.println(list);
-		
+
 		Collections.sort(list);
-		
+
 		System.out.println(list);
-		
+
 		Collections.rotate(list, 2 + r.nextInt(9));
 
 		System.out.println(list);
 	}
-	
+
 	public static void main(String[] args) {
 		FindPeak fp = new FindPeak();
 		fp.initialize();
